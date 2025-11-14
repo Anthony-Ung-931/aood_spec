@@ -14,11 +14,15 @@ public class Main {
         baseballSeats.add(new BaseballSeat(68.99, 424, 3, 8));
 
 
-        HardCodedSpecification<BaseballSeat> want_front_row = new HardCodedSpecification<BaseballSeat>(
-            seat -> seat.getSection() <= 199
-        );
+        HardCodedSpecification<BaseballSeat> want_front_row = 
+            new HardCodedSpecification<BaseballSeat>(
+                seat -> seat.getSection() <= 199
+            );
         
-        System.out.println("One customer wants a front row seat.");
+        System.out.println(
+            "One customer wants a front row seat.\n" + 
+            "These seats satify his criteria."
+        );
 
         baseballSeats.stream().forEach(seat -> {
             if(want_front_row.isSatisfiedBy(seat)) {
