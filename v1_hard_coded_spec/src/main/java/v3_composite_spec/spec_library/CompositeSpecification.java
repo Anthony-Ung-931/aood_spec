@@ -1,15 +1,10 @@
-package v3_composite_spec;
+package v3_composite_spec.spec_library;
 
-public class CompositeSpecification<T> implements Specification<T>{
-    Specification<T> wrapped_spec;
+public abstract class CompositeSpecification<T> implements Specification<T>{
 
-    public CompositeSpecification(Specification<T> spec) {
-        this.wrapped_spec = spec;
+    public CompositeSpecification() {
     }
     
     @Override
-    public boolean isSatisfiedBy(T o) {
-        // Implementation will go here
-        return wrapped_spec.isSatisfiedBy(o);
-    }
+    public abstract boolean isSatisfiedBy(T o);
 }
