@@ -53,7 +53,7 @@ public class Main {
 
         Specification<BaseballSeat> accessible_seat_spec = 
             new LeafSpecification<>(
-                seat -> seat.get_isAccessible() == true
+                seat -> seat.get_isAccessible()
             );
 
         baseballSeats.stream().forEach(seat -> {
