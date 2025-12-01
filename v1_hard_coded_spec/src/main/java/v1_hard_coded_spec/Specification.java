@@ -1,6 +1,5 @@
 package v1_hard_coded_spec;
 
-import java.util.Collection;
 
 public interface Specification<T> {
     boolean isSatisfiedBy(T o);
