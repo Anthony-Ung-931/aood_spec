@@ -8,6 +8,12 @@ import v3_composite_spec.spec_library.LeafSpecification;
 import v3_composite_spec.spec_library.Specification;
 
 
+/**
+ * V3 - Composite Specification
+ *    Demonstrates the usage of my own Composite Specification framework
+ *    This work is similar to the XML parser that Dr. Baliga created for the
+ *          Dependency Injection lecture.
+ */
 public class Main {
     
     public static void main(String[] args) {
@@ -68,7 +74,8 @@ public class Main {
         System.out.println("A fourth customer wants a cheap AND accessible seat");
         System.out.println("This time, we create a CompositeSpecification and add our existing cheap seat spec.");
 
-        Specification<BaseballSeat> cheap_and_accessible_spec = new AndSpecification<>(cheap_seat_spec,accessible_seat_spec);
+        Specification<BaseballSeat> cheap_and_accessible_spec = 
+            new AndSpecification<>(cheap_seat_spec,accessible_seat_spec);
 
         baseballSeats.stream().forEach(seat -> {
             if(cheap_and_accessible_spec.isSatisfiedBy(seat)) {   

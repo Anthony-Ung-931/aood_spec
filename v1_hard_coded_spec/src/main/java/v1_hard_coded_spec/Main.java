@@ -3,6 +3,12 @@ package v1_hard_coded_spec;
 import java.util.HashSet;
 import java.util.Set;
 
+
+/**
+ * V1 - Hard-Coded Specification
+ *    Demonstrates the use of the Specifaction interface
+ *    Demonstrates the instantiation and usage of the HardCodedSpecification class.
+ */
 public class Main {
     public static void main(String[] args) {
         Set<BaseballSeat> baseballSeats = new HashSet<>();
@@ -33,9 +39,10 @@ public class Main {
         System.out.println("");
 
 
-        HardCodedSpecification<BaseballSeat> want_cheap_seat = new HardCodedSpecification<>(
-            seat -> seat.getCost() <= 75.00
-        );
+        HardCodedSpecification<BaseballSeat> want_cheap_seat = 
+            new HardCodedSpecification<>(
+                seat -> seat.getCost() <= 75.00
+            );
         
         System.out.println("A different customer wants a cheap seat.");
 

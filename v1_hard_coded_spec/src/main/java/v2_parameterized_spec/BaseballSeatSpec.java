@@ -1,5 +1,12 @@
 package v2_parameterized_spec;
 
+
+/**
+ * An implementation of the Specification<BaseballSeat> interface
+ *      that allows for parameterized specificatios to be instantiated.
+ * 
+ * Parameter VALUES are hot-swappable but parameter TYPES are not.
+ */
 public class BaseballSeatSpec implements Specification<BaseballSeat> {
     private final double price_min;
     private final double price_max;

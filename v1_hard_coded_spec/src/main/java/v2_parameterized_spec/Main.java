@@ -3,6 +3,11 @@ package v2_parameterized_spec;
 import java.util.HashSet;
 import java.util.Set;
 
+
+/**
+ * V2 - Parameterized Specification
+ *      Demonstrates the usage of a parameterized specification
+ */
 public class Main {
     public static void main(String[] args) {
         Set<BaseballSeat> baseballSeats = new HashSet<>();

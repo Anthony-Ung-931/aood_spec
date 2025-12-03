@@ -4,6 +4,12 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
+
+/**
+ * This is the naive approach to filtering baseball seats
+ *      using the techniques you would have learned in
+ *      Object-Oriented Programming and Data Abstraction (OOPDA)
+ */
 public class Main {
     public static void main(String[] args) {
         Set<BaseballSeat> baseballSeats = new HashSet<>();
