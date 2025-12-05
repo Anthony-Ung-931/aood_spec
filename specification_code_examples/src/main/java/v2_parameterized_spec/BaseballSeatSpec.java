@@ -14,21 +14,60 @@ public class BaseballSeatSpec implements Specification<BaseballSeat> {
     private final int section_min;
     private final int section_max;
 
-    public BaseballSeatSpec
-        (Double price_min, Double price_max, 
-        Integer section_min, Integer section_max) {
-        
-            this.price_min = ((price_min == null) || (price_min < 0)) 
-                ? 0.0 : price_min;
-        this.price_max = ((price_max == null) || (price_max < 0) 
-            || ((price_min != null) && (price_max <= price_min))) 
-                ? Double.MAX_VALUE : price_max;
+    public static class BaseballSeatSpecBuilder {
+        private double price_min = Double.MIN_VALUE;
+        private double price_max = Double.MAX_VALUE;
 
-        this.section_min = ((section_min == null) || (section_min < 0)) 
-                ? 0 : section_min;
-        this.section_max = ((section_max == null) || (section_max < 0) 
-            || ((section_min != null) && (section_max <= section_min))) 
-                ? Integer.MAX_VALUE : section_max;
+        private int section_min = Integer.MIN_VALUE;
+        private int section_max = Integer.MAX_VALUE;
+
+        private BaseballSeatSpec spec;
+
+        public BaseballSeatSpecBuilder() {
+            // Nop - Returns the address to the caller
+        }
+
+        public BaseballSeatSpecBuilder setPriceMin(double price_min) {
+            if(price_min < this.price_max) {
+                this.price_min = price_min;
+            }
+            return this;
+        }
+
+        public BaseballSeatSpecBuilder setPriceMax(double price_max) {
+            if(price_max > this.price_min) {
+                this.price_max = price_max;
+            }
+            this.price_max = price_max;
+            return this;
+        }
+
+        public BaseballSeatSpecBuilder setSectionMin(int section_min) {
+            if(section_min < this.section_max) {
+                this.section_min = section_min;
+            }
+            return this;
+        }
+
+        public BaseballSeatSpecBuilder setSectionMax(int section_max) {
+            if(section_max > this.section_min) {
+                this.section_max = section_max;
+            }
+            return this;
+        }
+
+        public BaseballSeatSpec build() {
+            spec = new BaseballSeatSpec(this);
+            return spec;
+        }
+
+    }
+
+    private BaseballSeatSpec(BaseballSeatSpecBuilder builder) {
+        this.price_min = builder.price_min;
+        this.price_max = builder.price_max;
+        this.section_min = builder.section_min;
+        this.section_max = builder.section_max;
     }
 
     @Override

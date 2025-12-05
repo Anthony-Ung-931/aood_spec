@@ -3,6 +3,8 @@ package v2_parameterized_spec;
 import java.util.HashSet;
 import java.util.Set;
 
+import v2_parameterized_spec.BaseballSeatSpec.BaseballSeatSpecBuilder;
+
 
 /**
  * V2 - Parameterized Specification
@@ -22,9 +24,8 @@ public class Main {
 
         System.out.println("One customer wants a front row seat.");
 
-        BaseballSeatSpec want_front_row = new BaseballSeatSpec(
-            null, null, null, 199
-        );
+        BaseballSeatSpec want_front_row = 
+            new BaseballSeatSpecBuilder().setSectionMax(199).build();
 
         baseballSeats.stream().forEach(seat -> {
             if(want_front_row.isSatisfiedBy(seat)) {
@@ -38,9 +39,8 @@ public class Main {
         
         System.out.println("A different customer wants a cheap seat.");
         
-        BaseballSeatSpec want_cheap_seat = new BaseballSeatSpec(
-            null, 75.00, null, null
-        );
+        BaseballSeatSpec want_cheap_seat = 
+            new BaseballSeatSpecBuilder().setPriceMax(75).build();
 
         baseballSeats.stream().forEach(seat -> {
             if(want_cheap_seat.isSatisfiedBy(seat)) {
